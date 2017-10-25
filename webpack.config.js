@@ -23,6 +23,15 @@ module.exports = {
                 use: ["css-loader", "sass-loader"]
               })
         },
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: "css-loader"
+          })
+        },
+        { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
+        { test: /\.(ttf|eot)$/, loader: 'file-loader' },
     ]
   },
   devServer: {
