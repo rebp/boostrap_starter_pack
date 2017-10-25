@@ -30,8 +30,10 @@ module.exports = {
             use: "css-loader"
           })
         },
-        { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
-        { test: /\.(ttf|eot)$/, loader: 'file-loader' },
+        {
+          test: /\.(ttf|eot|woff|woff2|svg)$/,
+          loader: "url-loader?limit=50000&name=../[name].[ext]"
+        }
     ]
   },
   devServer: {
